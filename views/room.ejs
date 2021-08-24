@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat App</title>
+  <script>
+    const roomName = "<%= roomName %>"
+  </script>
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <%#  https://bootswatch.com/flatly/ %>
+  <link rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body id="body-room" background= "https://i.pinimg.com/originals/85/ec/df/85ecdf1c3611ecc9b7fa85282d9526e0.jpg">
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Chat App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="http://localhost:3000">Home
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#" onclick="About()">About</a>
+            <div id="About">This is a simple chat app. <br>
+              You have the option to create a room and chat with people.
+              <br>Enjoy!</div>
+          </li>
+       
+          <li class="nav-item">
+            <a class="nav-link active" href="https://rafiariel.github.io/">My Portfolio</a>
+          </li>
+          
+      </div>
+    </div>
+  </nav>
+  
+  
+<br>
+    <h2 style="text-align: center; color: white;
+    "><strong> <%= roomName %> room <span style="color: green;"> ● </span></strong></h2>
+<br>
+  
+
+
+<div id ="container-msg">
+    <div id="message-container"></div>
+</div>
+
+<div id="send-container-frame">
+  <form id="send-container">
+    <input type="text" id="message-input" placeholder="Type a message">
+    <button id="send-button" class="msg_send_btn" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+  </form>
+</div>
+
+
+</body>
+</html>

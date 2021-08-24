@@ -1,0 +1,136 @@
+
+#About{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 50px; /* the size of box */
+    position: fixed;
+    z-index: 1;
+    left: 35%;
+    bottom: 236px;
+    font-size: 20px;
+    box-shadow: 0 0 0 100vmax rgba(0,0,0,.3);
+    pointer-events: none;
+  }
+  
+  #About.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 9.5s;
+    animation: fadein 0.5s, fadeout 0.5s 9.5s;
+    box-shadow: 0 0 0 100vmax rgba(0,0,0,.3);
+    pointer-events: none;
+  }
+
+  #a.r{
+    background-color:#ffffff;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 236px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 236px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 236px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 236px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+#container-msg
+{
+  width: 50%;
+  max-width: 1200px;
+  margin:auto;
+  border: 1px solid #c4c4c4;
+  clear: both;
+  overflow: hidden;
+  height: 420px;
+  overflow-y: auto;
+}
+
+.msg_send_btn {
+  background: #05728f none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  height: 37px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 33px;
+}
+
+
+#body-room {
+  padding: 0;
+  margin: 0;
+  /* display: flex; */
+  justify-content: center;
+}
+
+
+#message-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  border: 3px solid rgb(245, 245, 245);
+  font-weight: bold;
+
+}
+#message-container div {
+  background-color: rgb(154, 170, 196);
+  margin: auto;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  vertical-align: middle;
+ 
+
+}
+#message-container div:nth-child(2n) {
+  background-color: rgb(94, 112, 216);
+}
+
+
+#send-container-frame
+{
+  margin:auto;
+  border: 2px solid #c4c4c4;
+  clear: both;
+  overflow: hidden;
+  height: 50px;
+  overflow-y: auto;
+  width: 50%;
+  max-width: 1200px;
+  
+
+}
+#send-container {
+
+  display: flex;
+  background-color: white;
+  width: 49.8%;
+  position: fixed;
+  bottom: 40px;
+  margin-left: 0.8px;
+  height: 45px;
+
+}
+#message-input {
+  flex-grow: 1;
+}

@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat App</title>
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <%#  https://bootswatch.com/flatly/ %>
+  <link rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.min.css">
+
+</head>
+
+<body background= "https://lh3.googleusercontent.com/SZ97RCEv5EVH6iMCDIdHeGJM_BNyHYcnRQ4EdK4V_VyVxLlQS8GY1U3xB8atEBH55OM">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Chat App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="http://localhost:3000">Home
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#" onclick="About()">About</a>
+            <div id="About">This is a simple chat app. <br>
+              You have the option to create a room and chat with people.
+              <br>Enjoy!</div>
+          </li>
+       
+          <li class="nav-item">
+            <a class="nav-link active" href="https://rafiariel.github.io/">My Portfolio</a>
+          </li>
+          
+      </div>
+    </div>
+  </nav>
+
+  <br>
+  <br>
+ 
+
+
+  
+
+
+
+  <h3 style="text-align: center; color: white;"><strong>Create a room</strong></h3>
+ 
+ 
+  <form action="/room" method="POST">
+    <div class="form-group has-success">
+      
+      <input id= "input-room" style="font-size: 18px;" name="room" type="text" class="form-control" placeholder="Enter room's name" required>
+      <br>
+      <div class="col-md-12 text-center">
+      <button type="submit" class="btn btn-dark" onclick="msg()" style="font-size: 18px;">Create
+      </button>
+    </div>
+    </div>
+
+    <br>
+    <br>
+    
+
+    <% if(Object.keys(rooms).length != 0){%>
+ 
+      <h3 style="text-align: center; color: white;"><strong>Enter an existing room</strong></h3>
+      <%}%>
+
+    <%#  add to class the word : active to bold the some tag %>
+    <div id="room-container" class="list-group" >
+        <% Object.keys(rooms).forEach(room => { %>
+          <a href="/<%= room %>" class="list-group-item list-group-item-action" style="font-size: 17px;"><%= room %></a>
+        <% }) %>
+    </div>
+  
+  
+
+  </form>
+
+
+
+
+
+</body>
+</html>
+
+
+
