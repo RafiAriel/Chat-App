@@ -8,13 +8,29 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
-const rooms = {  }
+
+const isEmpty = inputObject => {
+  return Object.keys(inputObject).length === 0;
+};
+ 
+const rooms = {}
+
+if(isEmpty(rooms))
+{
+  rooms["Gaming"] = { users: {} }
+  io.emit('room-created', "Gaming")
+
+  rooms["Politics"] = { users: {} }
+  io.emit('room-created', "Politics")
+
+  
+  rooms["Football"] = { users: {} }
+  io.emit('room-created', "Football")
+}
 
 
 app.get('/', (req, res) => {
-  res.render('index', { rooms: rooms })
- 
-
+  res.render('index', { rooms: rooms }) 
 })
 
 app.post('/room', (req, res) => {
