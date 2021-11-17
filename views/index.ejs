@@ -51,11 +51,6 @@
   <br>
  
 
-
-  
-
-
-
   <h3 style="text-align: center; color: white;"><strong>Create a room</strong></h3>
  
  
@@ -74,25 +69,20 @@
     <br>
     
 
-    <% if(Object.keys(rooms).length != 0){%>
+    <h3 style="text-align: center; color: white;"><strong>Enter an existing room</strong></h3>
+
+    <% if(Object.keys(rooms).length > 0){%>
+
+      <div id="room-container" class="list-group" >
+          <% Object.keys(rooms).forEach(room => { %>
+            <a href="/<%= room %>" class="list-group-item list-group-item-action" style="font-size: 17px;"><%= room %></a>
+          <% }) %>
+      </div>
+
  
-      <h3 style="text-align: center; color: white;"><strong>Enter an existing room</strong></h3>
       <%}%>
-
-    <%#  add to class the word : active to bold the some tag %>
-    <div id="room-container" class="list-group" >
-        <% Object.keys(rooms).forEach(room => { %>
-          <a href="/<%= room %>" class="list-group-item list-group-item-action" style="font-size: 17px;"><%= room %></a>
-        <% }) %>
-    </div>
-  
-  
-
+      
   </form>
-
-
-
-
 
 </body>
 </html>
