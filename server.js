@@ -9,6 +9,9 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 const port = process.env.PORT || 5000;
 
+var Filter = require('bad-words'),
+    filter = new Filter();
+
 
 const isEmpty = inputObject => {
   return Object.keys(inputObject).length === 0;
@@ -38,7 +41,8 @@ app.post('/room', (req, res) => {
   if (rooms[req.body.room] != null) {
     return res.redirect('/')
   }
-  rooms[req.body.room] = { users: {} }
+
+  rooms[filter.clean(req.body.room)] = { users: {} }
   // res.redirect(req.body.room)
   io.emit('room-created', req.body.room)
   res.redirect("/");
