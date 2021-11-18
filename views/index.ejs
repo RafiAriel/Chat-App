@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Chat App</title>
-  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src="/socket.io/socket.io.js"></script>
   <script defer src="script.js"></script>
   
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="http://localhost:3000">Home
+            <a class="nav-link active" href="https://chatapp1222.herokuapp.com">Home
             </a>
           </li>
 
@@ -51,6 +51,11 @@
   <br>
  
 
+
+  
+
+
+
   <h3 style="text-align: center; color: white;"><strong>Create a room</strong></h3>
  
  
@@ -68,7 +73,6 @@
     <br>
     <br>
     
-
     <h3 style="text-align: center; color: white;"><strong>Enter an existing room</strong></h3>
 
     <% if(Object.keys(rooms).length > 0){%>
@@ -81,9 +85,8 @@
 
  
       <%}%>
-      
-  </form>
 
+  </form>
 </body>
 </html>
 
