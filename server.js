@@ -7,6 +7,7 @@ app.set('views', './views')
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
+const port = process.env.PORT || 5000;
 
 
 const isEmpty = inputObject => {
@@ -30,7 +31,7 @@ if(isEmpty(rooms))
 
 
 app.get('/', (req, res) => {
-  res.render('index', { rooms: rooms }) 
+  res.render('index', { rooms: rooms, port: port }) 
 })
 
 app.post('/room', (req, res) => {
@@ -40,7 +41,7 @@ app.post('/room', (req, res) => {
   rooms[req.body.room] = { users: {} }
   // res.redirect(req.body.room)
   io.emit('room-created', req.body.room)
-  res.redirect("http://localhost:3000");
+  res.redirect("/");
   
   
 })
@@ -48,13 +49,14 @@ app.post('/room', (req, res) => {
 // name.swal("Good job!", "You clicked the button!", "success")
 
 app.get('/:room', (req, res) => {
-  if (rooms[req.params.room] == null) {
-    return res.redirect('/')
-  }
-  res.render('room', { roomName: req.params.room })
+ 
+  res.render('room', { roomName: req.params.room, port:port })
 })
 
-server.listen(3000)
+
+server.listen(port)
+
+
 
 io.on('connection', socket => {
   socket.on('new-user', (room, name) => {
@@ -79,5 +81,9 @@ function getUserRooms(socket) {
     return names
   }, [])
 }
+
+module.exports={
+  port
+};
 
 
